@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'iconfont';
+    /* project id 946354 */
+    src: url('//at.alicdn.com/t/font_946354_xat555gfqcd.eot');
+    src: url('//at.alicdn.com/t/font_946354_xat555gfqcd.eot?#iefix') format('embedded-opentype'),
+        url('//at.alicdn.com/t/font_946354_xat555gfqcd.woff') format('woff'),
+        url('//at.alicdn.com/t/font_946354_xat555gfqcd.ttf') format('truetype'),
+        url('//at.alicdn.com/t/font_946354_xat555gfqcd.svg#iconfont') format('svg');
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 50rpx;
+}
+
+.icon-backspace:before {
+    content: "\e607";
+}
+.orange{
+  color: orangered;
+}
+.cal{
+  background-color: orangered;
+  color: white;
+  width: 50%;
+}

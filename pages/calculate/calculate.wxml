@@ -1,0 +1,28 @@
+<view class="container">
+    <view class="result">
+        <text class="resultData">{{resultData}}</text>
+    </view>
+    <view class="input">
+        <view class="item orange" bindtap="btnOnClick" id="{{btnC}}">C</view>
+        <view class="item black" bindtap="btnOnClick" id="{{btnDel}}">
+            <text class="iconfont icon-backspace"></text>
+        </view>
+        <view class="item black" bindtap="btnOnClick" id="{{btnPercent}}">%</view>
+        <view class="item black" bindtap="btnOnClick" id="{{btnDivision}}">÷</view>
+        <view class="item black" bindtap="btnOnClick" id="{{btn7}}">7</view>
+        <view class="item black" bindtap="btnOnClick" id="{{btn8}}">8</view>
+        <view class="item black" bindtap="btnOnClick" id="{{btn9}}">9</view>
+        <view class="item black" bindtap="btnOnClick" id="{{btnX}}">×</view>
+        <view class="item black" bindtap="btnOnClick" id="{{btn4}}">4</view>
+        <view class="item black" bindtap="btnOnClick" id="{{btn5}}">5</view>
+        <view class="item black" bindtap="btnOnClick" id="{{btn6}}">6</view>
+        <view class="item black" bindtap="btnOnClick" id="{{btnMinus}}">-</view>
+        <view class="item black" bindtap="btnOnClick" id="{{btn1}}">1</view>
+        <view class="item black" bindtap="btnOnClick" id="{{btn2}}">2</view>
+        <view class="item black" bindtap="btnOnClick" id="{{btn3}}">3</view>
+        <view class="item black" bindtap="btnOnClick" id="{{btnAdd}}">+</view>
+        <view class="item black" bindtap="btnOnClick" id="{{btn0}}">0</view>
+        <view class="item black" bindtap="btnOnClick" id="{{btnPoint}}">.</view>
+        <view class="item cal" bindtap="btnOnClick" id="{{btnCal}}">=</view>
+    </view>
+</view>
