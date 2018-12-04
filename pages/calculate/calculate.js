@@ -1,3 +1,5 @@
+var CustomMath = require('../../lib/customMath.js')
+
 Page({
   /**
    * 页面的初始数据
@@ -30,7 +32,8 @@ Page({
       "－": "-",
       "×": "*",
       "÷": "/",
-      ".": "."
+      ".": ".",
+      "%": "%"
     },
     lastIsOperaSymbo: false,
   },
@@ -42,7 +45,7 @@ Page({
     var arr = this.data.arr
     var optArr = []
     var lastOperator = ""
-    if (id == this.data.btnDel) {
+    if (id == this.data.btnDel) { //点击退格键
       if (data == "0") {
         return
       }
@@ -86,13 +89,15 @@ Page({
       for (var i = 1; i < optArr.length; i++) {
         if (isNaN(optArr[i])) {
           if (optArr[1] == this.data.btnAdd) {
-            result += Number(optArr[i + 1]);
+            result = CustomMath.plus(result, Number(optArr[i + 1]));
           } else if (optArr[1] == this.data.btnMinus) {
-            result -= Number(optArr[i + 1]);
+            result = CustomMath.minus(result, Number(optArr[i + 1]));
           } else if (optArr[1] == this.data.btnX) {
-            result *= Number(optArr[i + 1]);
+            result = CustomMath.times(result, Number(optArr[i + 1]));
           } else if (optArr[1] == this.data.btnDivision) {
-            result /= Number(optArr[i + 1]);
+            result = CustomMath.divide(result, Number(optArr[i + 1]));
+          } else if (optArr[1] == this.data.btnPercent) {
+            result = result % Number(optArr[i + 1])
           }
         }
       }
@@ -106,7 +111,7 @@ Page({
     } else {
       if (this.data.operaSymbo[id]) { //如果是符号+-*/
         if (this.data.lastIsOperaSymbo || this.data.resultData == "0") {
-          return;
+          
         }
       }
 
@@ -132,7 +137,7 @@ Page({
       }
     }
 
-    console.log(data)
+    console.log(event)
   },
 
   /**
