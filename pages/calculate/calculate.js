@@ -28,10 +28,10 @@ Page({
     arr: [],
     logs: [],
     operaSymbo: {
-      "＋": "+",
-      "－": "-",
-      "×": "*",
-      "÷": "/",
+      "+": "+",
+      "-": "-",
+      "*": "*",
+      "/": "/",
       ".": ".",
       "%": "%"
     },
@@ -59,9 +59,14 @@ Page({
       this.data.arr.pop();
     } else if (id == this.data.btnC) { //清屏C
       this.setData({
-        "resultData": "0"
+        "resultData": "0",
+        'lastIsOperaSymbo': false
       });
       this.data.arr.length = 0;
+    } else if (id == this.data.btnPercent) { //百分号
+      this.setData({
+        'resultData': data / 100
+      })
     } else if (id == this.data.btnCal) { //=
       if (data == "0") {
         return
@@ -96,8 +101,6 @@ Page({
             result = CustomMath.times(result, Number(optArr[i + 1]));
           } else if (optArr[1] == this.data.btnDivision) {
             result = CustomMath.divide(result, Number(optArr[i + 1]));
-          } else if (optArr[1] == this.data.btnPercent) {
-            result = result % Number(optArr[i + 1])
           }
         }
       }
@@ -110,14 +113,22 @@ Page({
       });
     } else {
       if (this.data.operaSymbo[id]) { //如果是符号+-*/
-        if (this.data.lastIsOperaSymbo || this.data.resultData == "0") {
-          
+        if (this.data.lastIsOperaSymbo) {
+          return
         }
       }
 
       var resultData = this.data.resultData;
       if (resultData == 0) {
-        data = id;
+        if (id == '.') {
+          data = '0' + id;
+        } else {
+          if (data == '0') {
+            data = id
+          } else {
+            data = data + id
+          }
+        }
       } else {
         data = resultData + id;
       }
